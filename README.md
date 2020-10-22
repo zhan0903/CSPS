@@ -1,4 +1,4 @@
-This is the source code from the paper "Cooperative Heterogeneous Deep Reinforcement Learning" published at NeurIPS2020.
+This is the implementation code of the algorithm CSPC from the paper "Cooperative Heterogeneous Deep Reinforcement Learning" published at NeurIPS2020.
 # Dependencies
 pytorch 1.5.0,
 ray 1.0.0,
