@@ -92,7 +92,7 @@ class SAC(object):
 
         for it in range(steps):
             p = random.random()
-            if p <= 0.3 and local_mem.size > int(self.args.sac_init_sample) and self.args.engine != "SAC":
+            if p <= 0.3 and local_mem.size > int(self.args.sac_init_sample):
                 replay_mem = local_mem
             else:
                 replay_mem = global_mem
