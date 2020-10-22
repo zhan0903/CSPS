@@ -70,14 +70,6 @@ class SAC(object):
         # Initializing targets to match main variables
         self.target.vf_mlp.load_state_dict(self.main.vf_mlp.state_dict())
 
-    def explore(self):
-        if self.args.evaluate_cpu:
-            self.main.policy.cpu()
-        episode_timesteps,experiences,episode_reward = _explore(self.main.policy,self.env,self.explore_steps,self.args,config.SAC)
-        self.explore_steps += episode_timesteps
-
-        return episode_timesteps,experiences,episode_reward
-
     def get_actor_params(self):
         self.main.policy.cpu()
         return self.main.policy.net.state_dict(),self.main.policy.mu.state_dict()
