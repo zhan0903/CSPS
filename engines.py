@@ -88,6 +88,8 @@ class EngineCSPC:
             cem_timesteps,global_mem_temp,local_mem_temp = ray_get_and_free(cem_id)
             self.global_mem.add_epsodes(global_mem_temp)
             self.local_mem.add_epsodes(local_mem_temp)
+            self.sac.update(cem_timesteps,self.global_mem,self.local_mem)
+
             
             all_steps += cem_timesteps
             self.agent_steps[CEM] += cem_timesteps
@@ -106,7 +108,7 @@ class EngineCSPC:
             
             all_steps += ppo_timesteps
             self.agent_steps[PPO] += ppo_timesteps
-            self.sac.update(cem_timesteps+ppo_timesteps,self.global_mem,self.local_mem)
+            self.sac.update(ppo_timesteps,self.global_mem,self.local_mem)
             
             sac_timesteps = self.sac.train(sac_iteration,self.global_mem,self.local_mem,return_gap)
             all_steps += sac_timesteps
