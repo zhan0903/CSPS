@@ -1,3 +1,4 @@
+# Some code are adjusted from https://github.com/openai/spinningup and https://github.com/apourchot/CEM-RL/blob/master/models.py
 import numpy as np
 import torch
 import torch.nn as nn
