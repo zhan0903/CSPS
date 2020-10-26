@@ -44,7 +44,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', '-s', type=int, default=0)
     args = parser.parse_args()
 
-    ray.init(ignore_reinit_error=True, object_store_memory=2000000000)
+    ray.init(ignore_reinit_error=True, object_store_memory=3000000000)
 
     env = gym.make(args.env)
     torch.manual_seed(args.seed); np.random.seed(args.seed); random.seed(args.seed)
